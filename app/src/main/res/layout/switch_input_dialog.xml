@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/brand_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="Brand name"/>
+
+    <EditText
+        android:id="@+id/model_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/brand_input"
+        android:hint="Model name"
+        />
+
+    <Spinner
+        android:id="@+id/type_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/model_input"
+        />
+
+    <EditText
+        android:id="@+id/pretravel_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/type_spinner"
+        android:hint="Pre-Travel distance (mm)"
+        />
+
+    <EditText
+        android:id="@+id/travel_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/pretravel_input"
+        android:hint="Total travel distance (mm)"
+        />
+
+    <EditText
+        android:id="@+id/actuation_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/travel_input"
+        android:hint="Actuation force (g)"
+        />
+
+    <Spinner
+        android:id="@+id/pin_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/actuation_input"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
