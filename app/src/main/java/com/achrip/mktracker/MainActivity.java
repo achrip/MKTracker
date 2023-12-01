@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements InputDialogFragment.InputDialogListener{
 
     private ArrayList<Switches> switchbank;
-    private ArrayAdapter<Switches> arrayAdapter;
+    private SwichListAdapter swichListAdapter;
     private FloatingActionButton faBtn;
     private TextView totalSwitchView;
     private ListView switchList;
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements InputDialogFragme
         setContentView(R.layout.activity_main);
 
         switchbank = new ArrayList<>();
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, switchbank);
 
         switchbank.add(new MechanicalSwitch("Cherry", "MX Black",
                 "Linear", 5));
@@ -37,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements InputDialogFragme
         totalSwitchView = findViewById(R.id.totalItems);
         switchList = findViewById(R.id.itemList);
 
-        switchList.setAdapter(arrayAdapter);
+        swichListAdapter = new SwichListAdapter(this, switchbank);
+        switchList.setAdapter(swichListAdapter);
 
         faBtn.setOnClickListener(this::fabClickHandler);
         totalSwitchView.setText(String.format("Presses: %d", switchbank.size()));
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements InputDialogFragme
 //        Toast.makeText(getApplicationContext(), "AIGHT WE HERE", Toast.LENGTH_SHORT)
 //                .show();
         switchbank.add(s);
-        arrayAdapter.notifyDataSetChanged();
+        swichListAdapter.notifyDataSetChanged();
         totalSwitchView.setText(String.format("Presses: %d", switchbank.size()));
     }
 }
